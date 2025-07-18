@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eventra</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- AOS CSS for Scroll Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* ======= Your Full CSS Remains Here (Same As You Sent) ======= */
+    /* ... your existing CSS code ... (unchanged) */
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="main">
+    <div class="main-content">
+      <div class="logo">
+        <h3>EVENTRA</h3>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="buttons">
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="section" id="hero" data-aos="fade-down">
+    <div class="section-content">
+      <div class="title">
+        <h1>Get your 50% off with Eventra today!</h1>
+        <p>Today onward you can register on Eventra and obtain an offer up to 50%</p>
+        <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p>
+      Eventra is your trusted partner in creating unforgettable weddings. We specialize in tailored planning, attention to detail, and making your dream day stress-free and magical. Let us handle the logistics while you focus on making memories.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+        <h3>Venue Selection</h3>
+        <p>Choose from the most stunning venues to perfectly suit your style and guest list.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Decor & Themes</h3>
+        <p>Custom wedding themes and decor designed to create the perfect atmosphere.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Catering Services</h3>
+        <p>Delicious menus and catering tailored to your tastes and dietary needs.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Photography & Videography</h3>
+        <p>Capture every moment with our professional photography and videography services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" data-aos="fade-up">
+    <h2>Our Gallery</h2>
+
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="venue">Venue</button>
+      <button class="filter-btn" data-filter="decor">Decor</button>
+      <button class="filter-btn" data-filter="catering">Catering</button>
+      <button class="filter-btn" data-filter="photography">Photography</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item venue" data-aos="zoom-in">
+        <img src="imgs/a.jpg" alt="Beautiful wedding venue" />
+      </div>
+      <div class="gallery-item decor" data-aos="zoom-in">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Wedding decor with flowers" />
+      </div>
+      <div class="gallery-item catering" data-aos="zoom-in">
+        <img src="imgs/b.jpg" alt="Wedding catering food" />
+      </div>
+      <div class="gallery-item photography" data-aos="zoom-in">
+        <img src="imgs/e.jpg" alt="Wedding couple photo shoot" />
+      </div>
+      <div class="gallery-item venue" data-aos="zoom-in">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Outdoor wedding venue" />
+      </div>
+      <div class="gallery-item decor" data-aos="zoom-in">
+        <img src="imgs/b.jpg" alt="Elegant wedding decorations" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+    <img class="lightbox-img" src="" alt="Preview" />
+    <button class="lightbox-next" aria-label="Next">&#10095;</button>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <form id="contact-form" onsubmit="return handleSubmit(event)">
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)" />
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Eventra Wedding Planning. All rights reserved.
+  </footer>
+
+  <!-- Existing JS -->
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = e.target.name.value.trim();
+      const email = e.target.email.value.trim();
+      const message = e.target.message.value.trim();
+      if (name && email && message) {
+        alert(`Thank you, ${name}! Your message has been sent.`);
+        e.target.reset();
+      } else {
+        alert("Please fill in the required fields.");
+      }
+      return false;
+    }
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+        const filter = button.getAttribute('data-filter');
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    let currentIndex = 0;
+    let visibleItems = [];
+
+    function updateVisibleItems() {
+      visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
+    }
+
+    function showLightbox(index) {
+      currentIndex = index;
+      const img = visibleItems[currentIndex].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+      showLightbox(currentIndex);
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % visibleItems.length;
+      showLightbox(currentIndex);
+    }
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        updateVisibleItems();
+        currentIndex = visibleItems.indexOf(item);
+        showLightbox(currentIndex);
+      });
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          updateVisibleItems();
+          currentIndex = visibleItems.indexOf(item);
+          showLightbox(currentIndex);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') showPrev();
+      else if (e.key === 'ArrowRight') showNext();
+    });
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 1000,
+    });
+  </script>
+</body>
+</html>
